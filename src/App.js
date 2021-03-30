@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import Home from './pages/home'
+import Sorting from './components/sorting'
+import data from './assets/blog.json'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  constructor(props){
+      super(props)
+      this.state={
+        data: data
+      }
+      this.sortBy = this.sortBy.bind(this)
+  }
+
+  sortBy(key) {
+      this.setState({
+        data: data.sort( (a, b) => a < b )
+      })
+  }
+
+  render() {
+      return( 
+        <div>
+          <Sorting 
+            data={this.state.data}
+            sortBy={this.sortBy} 
+          />
+        </div>
+      )
+  }
 }
 
 export default App;
