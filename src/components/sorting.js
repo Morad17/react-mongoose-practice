@@ -1,17 +1,16 @@
 import React from 'react'
-import Data from '../assets/blog.json'
 
 const Sorting = (props) =>{
-    let Data = Data;
 
     return(
         <div className="">
             <button onClick={() => props.sortBy('blogTitle')}>Sort</button>
-            { props.Data.map(row => (
+            { props.data.map(row => (
                 <section className="">
                     <div className="row">
                         <div className="col">
-                            <h1>{ row.category}</h1>
+                            <h1>{ row.blogCategory}</h1>
+                            {console.log(row.blogCategory)}
                         </div>
                         <div className="col">
                             <h1></h1>

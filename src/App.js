@@ -14,9 +14,10 @@ class App extends React.Component {
 
   sortBy(key) {
       this.setState({
-        data: data.sort( (a, b) => a < b )
+        data: data.sort( (a, b) => {
+        return (a[key] < b[key] )
       })
-  }
+              })}
 
   render() {
       return( 
