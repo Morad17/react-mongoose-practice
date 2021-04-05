@@ -1,0 +1,48 @@
+.navbar{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.navigation{
+    display: flex;
+    flex-direction: row;
+
+    li{
+        list-style: none;
+    }
+
+    a{
+        text-decoration: none;
+        margin: 0 15px;
+        text-decoration: none;
+        color: black;
+        letter-spacing: 1.2px;
+    }
+}
+
+.search-row {
+    font-size: 23px;
+    padding: 6px;
+    margin-right: 10px;
+    color:gray;
+
+    input{
+        padding: 5px;
+    }
+}
+
+.searchInput{
+    border: 0;
+    width:0;
+    transition:width 0.1s ease-in;
+
+    .active{
+        width: 150px;
+    }
+}
+.searchInput:focus{
+    outline: none;
+}
+.fa-search{
+    cursor: pointer;
+}
