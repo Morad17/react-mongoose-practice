@@ -7,15 +7,19 @@ class App extends React.Component {
   constructor(props){
       super(props)
       this.state={
-        data: data
+        data: data,
+        direction: {
+          
+        }
       }
       this.sortBy = this.sortBy.bind(this)
   }
 
   sortBy(key) {
+        console.log(key)
       this.setState({
         data: data.sort( (a, b) => {
-        return (a[key] < b[key] )
+        return (a[key] - b[key] )
       })
               })}
 
