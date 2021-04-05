@@ -4,12 +4,12 @@ const Sorting = (props) =>{
 
     return(
         <div className="">
-            <button onClick={() => props.sortBy('blogTitle')}>Sort</button>
-            { props.data.map(row => (
+            <button onClick={() => props.sortBy('blogCategory')}>Sort</button>
+            { props.data.map((row, index) => (
                 <section className="">
                     <div className="row">
                         <div className="col">
-                            <h1>{ row.blogCategory}</h1>
+                            <h1 >{ row.postedOn}</h1>
                             {console.log(row.blogCategory)}
                         </div>
                         <div className="col">
