@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import {NavLink} from 'react-router-dom'
 import Card from './card'
+import '../assets/scss/base.scss'
 
 const Sidebar = (props) => {
 
@@ -19,7 +20,7 @@ const Sidebar = (props) => {
                 </div>
             </Card>
             <Card>
-                <div className="cardHeader">
+                <div className="card-header">
                     <span>Social Network</span>
                 </div>
             </Card>

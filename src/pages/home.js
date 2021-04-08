@@ -3,6 +3,7 @@ import Blog from '../assets/blog.json'
 import Hero from '../components/hero'
 import Sidebar from '../components/sidebar'
 import data from '../assets/blog.json'
+import Navbar from '../components/navbar'
 
 class Home extends React.Component {
 
@@ -27,6 +28,7 @@ class Home extends React.Component {
     render(){ 
         return(    
             <div>
+                <Navbar />
                 <Hero />
                 <Sidebar />
                 <div className="">

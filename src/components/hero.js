@@ -1,14 +1,29 @@
 import React from 'react';
 import Card from './card';
 import Navbar from './navbar'
+import '../assets/scss/base.scss'
 
 const Hero = (props) => {
     return(
         <div className="">
             <Card style={{ margin:'0 0.7%'}}>
                 <div style={{ padding:'50px 0'}}>
+                    <div className="banner">Hero Banner</div>
                 </div>
-                <Navbar />
+                <div className="hero-nav">
+                <ul className="">
+                    <li><a>Home</a></li>
+                    <li><a>About</a></li>
+                    <li><a>Post</a></li>
+                    <li><a>Contacts</a></li>
+                </ul>
+                <div className="search-row">
+                    {/* <form onSubmit={submitSearch}>
+                        <input type="text" className={searchClass} placeholder="Search"/>
+                        <i onClick={openSearch} className="fas fa-search"></i>
+                    </form> */}
+                </div>
+                </div>
             </Card>
         </div>
     )

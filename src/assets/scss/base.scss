@@ -3,4 +3,28 @@
 @import './navbar';
 @import './sidebar';
 
+body {
+    background: #e9eaed;
+}
+.App{
+    width:90%;
+    margin: 0 auto;
+    /* border: 0.1px solid #8695a5; */
+  }
+
+
+
+/*----Global Css Shortcuts----*/
+
+.center{
+    text-align: center;
+  }
+  .justify-center{
+    justify-content: center;
+  }
+  .bold{
+    font-weight:600;
+  }
+
+/*-----variable---*/
 $border-color: #a3aeb9;

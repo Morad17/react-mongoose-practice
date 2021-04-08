@@ -1,5 +1,5 @@
 import React from 'react'
-
+import '../assets/scss/base.scss'
 
 const Card = (props) => {
   return(

@@ -6,7 +6,7 @@ import data from './assets/blog.json'
 function App() {
 
   return(
-    <div className="">
+    <div className="App">
       <Home />
     </div>
   )
