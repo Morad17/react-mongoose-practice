@@ -30,6 +30,7 @@ class Home extends React.Component {
             <div>
                 <Navbar />
                 <Hero />
+                <PostFunctions />
                 <Sidebar />
                 <div className="">
                     {Blog.map((BlogPost, index) => {
