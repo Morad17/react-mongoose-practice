@@ -1,4 +1,10 @@
-
-.new-post-thumb{
-    width: 5%;
+.post-card{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
+.new-post-thumb, .edit-post-thumb{
+    width: 6%;
+}
+
+/*--New post credit phil goodwin, noun project ---*/
