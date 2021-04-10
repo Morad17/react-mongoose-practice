@@ -4,6 +4,7 @@ import Hero from '../components/hero'
 import Sidebar from '../components/sidebar'
 import data from '../assets/blog.json'
 import Navbar from '../components/navbar'
+import PostFunctions from '../components/postFunctions'
 
 class Home extends React.Component {
 

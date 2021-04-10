@@ -1,11 +1,14 @@
 import React from 'react'
+import Card from './card'
+
 import '../assets/scss/base.scss'
 
-const postFunctions = (props) => {
+
+const PostFunctions = (props) => {
 
     return(
-        <div>
-            <Card style={{ width:'33%'}}><button>New Post</button></Card>
+        <div className="post-functions">
+            <Card style={{ width:'33%'}}><img class="new-post-thumb"src="./images/new-post.png" alt=""/><button>New Post</button></Card>
         </div>
     )
 }
