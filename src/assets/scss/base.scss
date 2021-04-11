@@ -13,19 +13,22 @@ body {
     /* border: 0.1px solid #8695a5; */
   }
 
-
+.row{
+  width: 90%;
+  margin: 0 auto;
+}
 
 /*----Global Css Shortcuts----*/
 
 .center{
     text-align: center;
   }
-  .justify-center{
-    justify-content: center;
-  }
-  .bold{
-    font-weight:600;
-  }
+.justify-center{
+  justify-content: center;
+}
+.bold{
+  font-weight:600;
+}
 
 /*-----variable---*/
 $border-color: #a3aeb9;

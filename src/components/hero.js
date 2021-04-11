@@ -5,8 +5,8 @@ import '../assets/scss/base.scss'
 
 const Hero = (props) => {
     return(
-        <div className="">
-            <Card style={{ margin:'0 0.7%'}}>
+        <div className="row">
+            <Card style={{ }}>
                 <div style={{ padding:'50px 0'}}>
                     <div className="banner">Hero Banner</div>
                 </div>

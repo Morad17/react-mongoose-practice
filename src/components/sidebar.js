@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react'
 import {NavLink} from 'react-router-dom'
 import Card from './card'
 import '../assets/scss/base.scss'
+import Data from '../assets/blog.json'
 
 const Sidebar = (props) => {
 
@@ -29,8 +30,12 @@ const Sidebar = (props) => {
                     <span>Recent posts</span>
                 </div>
 
-                <div className="recent-posts">
-                    <div className="">Example</div>
+                <div className="">
+                    {Data.map((data, index) => {
+                    return  <Card>
+                                <div className="blogTitles">{data.blogTitle}</div>
+                            </Card>
+                    })}
                 </div>
             </Card>
 

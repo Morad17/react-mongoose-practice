@@ -4,7 +4,7 @@ import '../assets/scss/base.scss'
 
 const Navbar = (props) => {
     return(
-           <header className="header">
+           <header className="header row">
                 <nav className="main-nav">
                     <ul>
                         <li><a href="#">Home</a></li>
