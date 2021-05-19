@@ -36,20 +36,19 @@ class Home extends React.Component {
     render(){ 
         return(    
             <div>
-                <Navbar />
-                <Hero />
-                <div className="row content">
-                    <PostFunctions />
-                    <Sidebar />
-                </div>
-                <div className="">
-                    <Router>
-                        <Route path="/" exact component={ExerciseList} />
-                        <Route path="/edit/:id" component={EditExercise} />
-                        <Route path="/create" component={CreateExercise} />
-                        <Route path="/user" component={CreateUser} />
-                    </Router>
-                </div>
+                <Router>
+
+                    <Navbar />
+                    <Hero />
+                    <div className="row content">
+                        <PostFunctions />
+                        <Sidebar />
+                    </div>
+                    <Route path="/" exact component={ExerciseList} />
+                    <Route path="/edit/:id" component={EditExercise} />
+                    <Route path="/create" component={CreateExercise} />
+                    <Route path="/user" component={CreateUser} />
+                </Router>
             </div>
         )}
 }
