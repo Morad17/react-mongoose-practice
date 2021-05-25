@@ -5,36 +5,36 @@ import "react-datepicker/dist/react-datepicker.css";
 
 /**
 * @author
-* @class EditExercise
+* @class EditBlogPost
 **/
 
-class EditExercise extends Component {
+class EditBlogPost extends Component {
  constructor(props){
    super(props);
    
    this.onChangeUsername = this.onChangeUsername.bind(this)
-   this.onChangeDescription = this.onChangeDescription.bind(this)
-   this.onChangeDuration = this.onChangeDuration.bind(this)
-   this.onChangeDate = this.onChangeDate.bind(this)
+   this.onChangeBlogTitle = this.onChangeBlogTitle.bind(this)
+   this.onChangeMainContent = this.onChangeMainContent.bind(this)
+   this.onDateUpdated = this.onDateUpdated.bind(this)
    this.onSubmit = this.onSubmit.bind(this)
 
    this.state = {
      username: '',
-     description: '',
-     duration: 0,
-     date: new Date(),
+     blogTitle: '',
+     mainContent: '',
+     dateUpdated: new Date(),
      users: []
    }
  }
 
 componentDidMount() {
-  axios.get('http://localhost:5000/exercises/'+this.props.match.params.id)
+  axios.get('http://localhost:5000/blogposts/'+this.props.match.params.id)
     .then(response => {
       this.setState({
         username: response.data.username,
-        description: response.data.description,
-        duration: response.data.duration,
-        date: new Date(response.data.date)
+        blogTitle: response.data.blogTitle,
+        mainContent: response.data.mainContent,
+        dateCreated: new Date(response.data.date)
       })
     })
     .catch(function (error) {
@@ -58,21 +58,21 @@ componentDidMount() {
    });
  }
 
- onChangeDescription(e) {
+ onChangeBlogTitle(e) {
   this.setState ({
-    description: e.target.value
+    blogTitle: e.target.value
   });
 }
 
-onChangeDuration(e) {
+onChangeMainContent(e) {
   this.setState ({
-    duration: e.target.value
+    mainContent: e.target.value
   });
 }
 
-onChangeDate(date) {
+onChangeDateCreated(dateCreated) {
   this.setState ({
-    date: date
+    dateCreated: dateCreated
   });
 }
 
@@ -80,16 +80,16 @@ onSubmit(e) {
   e.preventDefault();
 
 
-  const exercise = {
+  const blogpost = {
     username: this.state.username,
-    description: this.state.description,
-    duration: this.state.duration,
-    date: this.state.date
+    blogTitle: this.state.blogTitle,
+    mainContent: this.state.mainContent,
+    dateCreated: this.state.dateCreated
   }
 
-  console.log(exercise)
+  console.log(blogpost)
 
-  axios.post('http://localhost:5000/exercises/update/'+ this.props.match.params.id, exercise)
+  axios.post('http://localhost:5000/blogposts/update/'+ this.props.match.params.id, blogpost)
     .then(res => console.log(res.data));
 
   window.location = '/';
@@ -98,7 +98,7 @@ onSubmit(e) {
  render() {
   return(
     <div className="">
-      <div>Edit Exercise</div>
+      <div>Edit Post</div>
       <form onSubmit={this.onSubmit}>
         <div className="form-group">
           <label>Username: </label>
@@ -111,17 +111,17 @@ onSubmit(e) {
           </select>
         </div>
         <div className="form-group">
-          <label>Description</label>
-          <input type="text" required className="form-control" value={this.state.description} onChange={this.onChangeDescription} />
+          <label>Blog Title</label>
+          <input type="text" required className="form-control" value={this.state.blogTitle} onChange={this.onChangeBlogTitle} />
         </div>
         <div className="form-group">
-          <label>Duration (minutes): </label>
-          <input type="text" className="form-control" value={this.state.duration} onChange={this.onChangeDuration} />
+          <label>Content: </label>
+          <input type="text" className="form-control" value={this.state.mainContent} onChange={this.onChangeMainContent} />
         </div>
         <div className="form-group">
-          <label>Date: </label>
+          <label>Date Updated: </label>
           <div className="">
-            <DatePicker selected={this.state.date} onChange={this.onChangeDate} />
+            <DatePicker selected={this.state.date} onChange={this.onChangeDateCreated} />
           </div>
         </div>
         <div className="form-group">
@@ -133,4 +133,4 @@ onSubmit(e) {
    }
  }
 
-export default EditExercise
+export default EditBlogPost

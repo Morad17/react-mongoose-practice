@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 
-import PropTypes from 'prop-types'
 import DatePicker from 'react-datepicker'
 import "react-datepicker/dist/react-datepicker.css";
 
@@ -29,7 +28,7 @@ componentDidMount() {
   })
 }
 
-/*----Exercise Variable Handlers ---*/
+/*-------*/
  onChangeUsername(e) {
    this.setState ({
      username: e.target.value
@@ -64,7 +63,7 @@ onSubmit (e) {
           <input type="text" required className="form-control" value={this.state.username} onChange={this.onChangeUsername} />
         </div>
         <div className="form-group">
-          <input type="submit" value="Create Exercise" className="btn btn-primary" />
+          <input type="submit" value="Create User" className="btn btn-primary" />
         </div>
       </form>
     </div>
@@ -73,5 +72,4 @@ onSubmit (e) {
  }
 
 
-CreateUser.propTypes = {}
 export default CreateUser

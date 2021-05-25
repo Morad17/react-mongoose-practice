@@ -1,17 +1,16 @@
 import React from 'react'
 import { BrowserRouter as Router, Route } from "react-router-dom"
 
-import Blog from '../assets/blog.json'
 import Hero from '../components/hero'
 import Sidebar from '../components/sidebar'
 import data from '../assets/blog.json'
 import Navbar from '../components/navbar'
 import PostFunctions from '../components/postFunctions'
 
-import CreateExercise from '../components/createExercise'
+import CreateBlogPost from '../components/createBlogPost'
 import CreateUser from '../components/createUser'
-import EditExercise from '../components/editExercise'
-import ExerciseList from '../components/exerciseList'
+import EditBlogPost from '../components/editBlogPost'
+import BlogList from '../components/blogList'
 
 class Home extends React.Component {
 
@@ -44,9 +43,9 @@ class Home extends React.Component {
                         <PostFunctions />
                         <Sidebar />
                     </div>
-                    <Route path="/" exact component={ExerciseList} />
-                    <Route path="/edit/:id" component={EditExercise} />
-                    <Route path="/create" component={CreateExercise} />
+                    <Route path="/" exact component={BlogList} />
+                    <Route path="/edit/:id" component={EditBlogPost} />
+                    <Route path="/create" component={CreateBlogPost} />
                     <Route path="/user" component={CreateUser} />
                 </Router>
             </div>
