@@ -17,12 +17,16 @@ class CreateBlogPost extends Component {
    this.onChangeBlogTitle = this.onChangeBlogTitle.bind(this)
    this.onChangeMainContent = this.onChangeMainContent.bind(this)
    this.onChangeDateCreated = this.onChangeDateCreated.bind(this)
+   this.onChangeCategory = this.onChangeCategory.bind(this)
+   this.onChangeLanguage = this.onChangeLanguage.bind(TouchList)
    this.onSubmit = this.onSubmit.bind(this)
 
    this.state = {
      username: '',
      blogTitle: '',
      mainContent: '',
+     category: '',
+     language: '',
      dateCreated: new Date(),
      users: []
    }
@@ -59,6 +63,18 @@ onChangeMainContent(e) {
   });
 }
 
+onChangeCategory(e) {
+  this.setState ({
+    category: e.target.value
+  });
+}
+
+onChangeLanguage(e) {
+  this.setState ({
+    language: e.target.value
+  });
+}
+
 onChangeDateCreated(dateCreated) {
   this.setState ({
     dateCreated: dateCreated
@@ -73,7 +89,9 @@ onSubmit (e) {
     username: this.state.username,
     blogTitle: this.state.blogTitle,
     mainContent: this.state.mainContent,
-    dateCreated: this.state.dateCreated
+    dateCreated: this.state.dateCreated,
+    language: this.state.language,
+    category: this.state.category,
   }
 
   console.log(blogpost)
@@ -106,6 +124,14 @@ onSubmit (e) {
         <div className="form-group">
           <label>MainContent </label>
           <input type="text" className="form-control" value={this.state.mainContent} onChange={this.onChangeMainContent} />
+        </div>
+        <div className="form-group">
+          <label>Category</label>
+          <input type="text" className="form-control" value={this.state.category} onChange={this.onChangeCategory} />
+        </div>
+        <div className="form-group">
+          <label>Language</label>
+          <input type="text" className="form-control" value={this.state.language} onChange={this.onChangeLanguage} />
         </div>
         <div className="form-group">
           <label>Date Created: </label>

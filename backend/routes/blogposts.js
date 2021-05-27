@@ -14,12 +14,16 @@ router.route('/add').post((req, res) => {
   const blogTitle = req.body.blogTitle;
   const mainContent = req.body.mainContent;
   const dateCreated = Date.parse(req.body.dateCreated);
+  const category = req.body.category;
+  const language = req.body.language;
 
   const newBlogPost = new BlogPost({
     username,
     blogTitle,
     mainContent,
     dateCreated,
+    category,
+    language,
   });
 
   newBlogPost.save()
@@ -42,15 +46,17 @@ router.route('/:id').delete((req, res) => {
 });
 
 /*------Update a Blog Posts------*/
-router.route('/updateCreated/:id').post((req, res) => {
+router.route('/update/:id').post((req, res) => {
   BlogPost.findById(req.params.id)
     .then(blogpost => {
-      BlogPost.username = req.body.username;
-      BlogPost.blogTitle = req.body.blogTitle;
-      BlogPost.mainContent = req.body.mainContent;
-      BlogPost.dateCreated = Date.parse(req.body.dateCreated);
+      blogpost.username = req.body.username;
+      blogpost.blogTitle = req.body.blogTitle;
+      blogpost.mainContent = req.body.mainContent;
+      blogpost.dateCreated = Date.parse(req.body.dateCreated);
+      blogpost.category = req.body.category;
+      blogpost.language = req.body.language;
 
-      BlogPost.save()
+      blogpost.save()
         .then(() => res.json('Blog updated!'))
         .catch(err => res.status(400).json('Error: ' + err));
     })

@@ -15,13 +15,16 @@ class EditBlogPost extends Component {
    this.onChangeUsername = this.onChangeUsername.bind(this)
    this.onChangeBlogTitle = this.onChangeBlogTitle.bind(this)
    this.onChangeMainContent = this.onChangeMainContent.bind(this)
-   this.onDateUpdated = this.onDateUpdated.bind(this)
+   this.onChangeCategory = this.onChangeCategory.bind(this)
+   this.onChangeLanguage = this.onChangeLanguage.bind(this)
    this.onSubmit = this.onSubmit.bind(this)
 
    this.state = {
      username: '',
      blogTitle: '',
      mainContent: '',
+     category: '',
+     language: '',
      dateUpdated: new Date(),
      users: []
    }
@@ -34,6 +37,8 @@ componentDidMount() {
         username: response.data.username,
         blogTitle: response.data.blogTitle,
         mainContent: response.data.mainContent,
+        category: response.data.category,
+        language: response.data.language,
         dateCreated: new Date(response.data.date)
       })
     })
@@ -70,6 +75,18 @@ onChangeMainContent(e) {
   });
 }
 
+onChangeCategory(e) {
+  this.setState ({
+    category: e.target.value
+  });
+}
+
+onChangeLanguage(e) {
+  this.setState ({
+    language: e.target.value
+  });
+}
+
 onChangeDateCreated(dateCreated) {
   this.setState ({
     dateCreated: dateCreated
@@ -84,6 +101,8 @@ onSubmit(e) {
     username: this.state.username,
     blogTitle: this.state.blogTitle,
     mainContent: this.state.mainContent,
+    category: this.state.category,
+    language: this.state.language,
     dateCreated: this.state.dateCreated
   }
 
@@ -117,6 +136,14 @@ onSubmit(e) {
         <div className="form-group">
           <label>Content: </label>
           <input type="text" className="form-control" value={this.state.mainContent} onChange={this.onChangeMainContent} />
+        </div>
+        <div className="form-group">
+          <label>Category: </label>
+          <input type="text" className="form-control" value={this.state.category} onChange={this.onChangeCategory} />
+        </div>
+        <div className="form-group">
+          <label>Language</label>
+          <input type="text" className="form-control" value={this.state.language} onChange={this.onChangeLanguage} />
         </div>
         <div className="form-group">
           <label>Date Updated: </label>

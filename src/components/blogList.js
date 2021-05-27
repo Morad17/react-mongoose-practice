@@ -14,12 +14,20 @@ const BlogPost = props => (
       <div className="col">{props.blogpost.username}</div>
     </div>
     <div className="row">
-      <div className="col">Description</div>
-      <div className="col">{props.blogpost.description}</div>
+      <div className="col">Blog Title</div>
+      <div className="col">{props.blogpost.blogTitle}</div>
     </div>
     <div className="row">
       <div className="col">Main Content</div>
       <div className="col">{props.blogpost.mainContent}</div>
+    </div>
+    <div className="row">
+      <div className="col">Category</div>
+      <div className="col">{props.blogpost.category}</div>
+    </div>
+    <div className="row">
+      <div className="col">Language</div>
+      <div className="col">{props.blogpost.language}</div>
     </div>
     <div className="row">
       <div className="col">Date Created</div>

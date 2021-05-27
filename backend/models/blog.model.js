@@ -7,6 +7,8 @@ const blogSchema = new Schema({
   blogTitle: { type: String, required: true },
   mainContent: { type: String, required: true },
   dateCreated: { type: Date, required: true },
+  category: {type: String, required: true},
+  languange: {type: String, required: true}
 }, {
   timestamps: true,
 });
