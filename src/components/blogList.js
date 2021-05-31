@@ -2,45 +2,12 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import axios from'axios'
 
+import BlogCard from './blogCard'
+
 /**
 * @author
 * @class BlogList
 **/
-
-const BlogPost = props => (
-  <div className="container">
-    <div className="row">
-      <div className="col">Username</div>
-      <div className="col">{props.blogpost.username}</div>
-    </div>
-    <div className="row">
-      <div className="col">Blog Title</div>
-      <div className="col">{props.blogpost.blogTitle}</div>
-    </div>
-    <div className="row">
-      <div className="col">Main Content</div>
-      <div className="col">{props.blogpost.mainContent}</div>
-    </div>
-    <div className="row">
-      <div className="col">Category</div>
-      <div className="col">{props.blogpost.category}</div>
-    </div>
-    <div className="row">
-      <div className="col">Language</div>
-      <div className="col">{props.blogpost.language}</div>
-    </div>
-    <div className="row">
-      <div className="col">Date Created</div>
-      <div className="col">{props.blogpost.dateCreated.substring(0,10)}</div>
-    </div>
-    <div className="row">
-      <div className="col">
-        <Link to={"/edit/"+props.blogpost._id}>edit</Link>| <a href="#" onClick={() => { props.deleteBlogPost(props.blogpost._id) }}>delete</a>
-      </div>
-    </div>
-  </div>
-)
-
 class BlogList extends Component {
   constructor(props) {
     super(props);
@@ -70,7 +37,7 @@ class BlogList extends Component {
 
   blogList() {
     return this.state.blogposts.map(currentBlogPost => {
-      return <BlogPost blogpost={currentBlogPost} deleteBlogPost={this.deleteBlogPost} key={currentBlogPost._id} />
+      return <BlogCard blogpost={currentBlogPost} deleteBlogPost={this.deleteBlogPost} key={currentBlogPost._id} />
     })
   }
 
