@@ -11,17 +11,19 @@ import '../assets/scss/_blog-card.scss'
 
 const BlogCard = (props) => {
   return(
-    <Card prop={props} style={{ width:'calc(25% - .5rem)'}}>
-        <img className="blogCard-image" src="images/blog-template.jpg" alt="" />
-        <h2>{props.blogpost.blogTitle}</h2>
-        <p>{props.blogpost.language}</p>
-        <p>{props.blogpost.username},{props.dateCreated}</p>
-        <div className="row">
-            <div className="col">
+    <div prop={props} className="BlogCard">
+        <div className="BlogCard-image">
+          <img className="" src="images/blog-template.jpg" alt="" />
+        </div>
+        <h2 className="BlogCard-title">{props.blogpost.blogTitle}</h2>
+        <div className="row BlogCard-text">
+          <p>{props.blogpost.language}</p>
+          <p>{props.blogpost.username},{props.dateCreated}</p>
+          <div className="col">
             <Link to={"/edit/"+props.blogpost._id}>edit</Link>| <a href="#" onClick={() => { props.deleteBlogPost(props.blogpost._id) }}>delete</a>
-      </div>
+          </div>
+          </div>
     </div>
-    </Card>
    )
   }
 

@@ -18,7 +18,7 @@ class CreateBlogPost extends Component {
    this.onChangeMainContent = this.onChangeMainContent.bind(this)
    this.onChangeDateCreated = this.onChangeDateCreated.bind(this)
    this.onChangeCategory = this.onChangeCategory.bind(this)
-   this.onChangeLanguage = this.onChangeLanguage.bind(TouchList)
+   this.onChangeLanguage = this.onChangeLanguage.bind(this)
    this.onSubmit = this.onSubmit.bind(this)
 
    this.state = {

@@ -40,13 +40,16 @@ class Home extends React.Component {
                     <Navbar />
                     <Hero />
                     <div className="row content">
+                        <div className="">
                         <PostFunctions />
-                        <Sidebar />
+                        <Route path="/" exact component={BlogList} />
+                        <Route path="/edit/:id" component={EditBlogPost} />
+                        <Route path="/create" component={CreateBlogPost} />
+                        <Route path="/user" component={CreateUser} />
+                        </div>
+                    <Sidebar />
                     </div>
-                    <Route path="/" exact component={BlogList} />
-                    <Route path="/edit/:id" component={EditBlogPost} />
-                    <Route path="/create" component={CreateBlogPost} />
-                    <Route path="/user" component={CreateUser} />
+                    
                 </Router>
             </div>
         )}

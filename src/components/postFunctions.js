@@ -10,7 +10,7 @@ const PostFunctions = (props) => {
 
     return(
         <div className="post-functions">
-            <Card style={{ width:'157%', display:'flex', justifyContent:'space-between'}}>
+            <Card style={{ width:'98%', display:'flex', justifyContent:'space-between'}}>
                 <div className="post-bar">
                 <ul className="post-bar-navigation">
                     <li className="total-posts">
