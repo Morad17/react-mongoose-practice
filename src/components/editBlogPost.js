@@ -148,7 +148,7 @@ onSubmit(e) {
         <div className="form-group">
           <label>Date Updated: </label>
           <div className="">
-            <DatePicker selected={this.state.date} onChange={this.onChangeDateCreated} />
+            <DatePicker selected={this.state.dateCreated} onChange={this.onChangeDateCreated} />
           </div>
         </div>
         <div className="form-group">

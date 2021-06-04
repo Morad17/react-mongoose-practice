@@ -84,7 +84,6 @@ onChangeDateCreated(dateCreated) {
 onSubmit (e) {
   e.preventDefault();
 
-
   const blogpost = {
     username: this.state.username,
     blogTitle: this.state.blogTitle,
@@ -136,7 +135,7 @@ onSubmit (e) {
         <div className="form-group">
           <label>Date Created: </label>
           <div className="">
-            <DatePicker selected={this.state.dateCreated} onChange={this.onChangeDateCreated} />
+            <DatePicker selected={this.state.date} onChange={this.onChangeDateCreated} />
           </div>
         </div>
         <div className="form-group">

@@ -16,13 +16,13 @@ const BlogCard = (props) => {
           <img className="" src="images/blog-template.jpg" alt="" />
         </div>
         <h2 className="BlogCard-title">{props.blogpost.blogTitle}</h2>
-        <div className="row BlogCard-text">
+        <div className="BlogCard-text">
           <p>{props.blogpost.language}</p>
           <p>{props.blogpost.username},{props.dateCreated}</p>
           <div className="col">
             <Link to={"/edit/"+props.blogpost._id}>edit</Link>| <a href="#" onClick={() => { props.deleteBlogPost(props.blogpost._id) }}>delete</a>
           </div>
-          </div>
+        </div>
     </div>
    )
   }
