@@ -18,7 +18,7 @@ const BlogCard = (props) => {
         <h2 className="BlogCard-title">{props.blogpost.blogTitle}</h2>
         <div className="BlogCard-text">
           <p>{props.blogpost.language}</p>
-          <p>{props.blogpost.username},{props.dateCreated}</p>
+          <p>{props.blogpost.username},{props.date}</p>
           <div className="col">
             <Link to={"/edit/"+props.blogpost._id}>edit</Link>| <a href="#" onClick={() => { props.deleteBlogPost(props.blogpost._id) }}>delete</a>
           </div>
