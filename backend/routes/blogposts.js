@@ -13,17 +13,17 @@ router.route('/add').post((req, res) => {
   const username = req.body.username;
   const blogTitle = req.body.blogTitle;
   const mainContent = req.body.mainContent;
-  const dateCreated = Date.parse(req.body.dateCreated);
   const category = req.body.category;
   const language = req.body.language;
+  const date = Date.parse(req.body.date);
 
   const newBlogPost = new BlogPost({
     username,
     blogTitle,
     mainContent,
-    dateCreated,
     category,
     language,
+    date,
   });
 
   newBlogPost.save()
@@ -52,9 +52,9 @@ router.route('/update/:id').post((req, res) => {
       blogpost.username = req.body.username;
       blogpost.blogTitle = req.body.blogTitle;
       blogpost.mainContent = req.body.mainContent;
-      blogpost.dateCreated = Date.parse(req.body.dateCreated);
       blogpost.category = req.body.category;
       blogpost.language = req.body.language;
+      blogpost.date = Date.parse(req.body.date);
 
       blogpost.save()
         .then(() => res.json('Blog updated!'))

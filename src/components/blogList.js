@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
 import axios from'axios'
 
 import BlogCard from './blogCard'
@@ -44,7 +43,7 @@ class BlogList extends Component {
 
   render() {
     return(
-    <div>
+    <div className="blogFunctions">
         {this.blogList()}
     </div>
       )

@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 
-import DatePicker from 'react-datepicker'
 import "react-datepicker/dist/react-datepicker.css";
 
 /**
@@ -55,7 +54,7 @@ onSubmit (e) {
 
  render() {
   return(
-    <div className="">
+    <div className="blogFunctions">
       <div>CreateUser</div>
       <form onSubmit={this.onSubmit}>
         <div className="form-group">

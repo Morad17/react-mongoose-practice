@@ -4,11 +4,6 @@ import axios from 'axios'
 import DatePicker from 'react-datepicker'
 import "react-datepicker/dist/react-datepicker.css";
 
-/**
-* @author
-* @class CreateBlogPost
-**/
-
 class CreateBlogPost extends Component {
  constructor(props){
    super(props);
@@ -16,7 +11,7 @@ class CreateBlogPost extends Component {
    this.onChangeUsername = this.onChangeUsername.bind(this)
    this.onChangeBlogTitle = this.onChangeBlogTitle.bind(this)
    this.onChangeMainContent = this.onChangeMainContent.bind(this)
-   this.onChangeDateCreated = this.onChangeDateCreated.bind(this)
+   this.onChangeDate = this.onChangeDate.bind(this)
    this.onChangeCategory = this.onChangeCategory.bind(this)
    this.onChangeLanguage = this.onChangeLanguage.bind(this)
    this.onSubmit = this.onSubmit.bind(this)
@@ -27,13 +22,13 @@ class CreateBlogPost extends Component {
      mainContent: '',
      category: '',
      language: '',
-     dateCreated: new Date(),
+     date: new Date(),
      users: []
    }
  }
 
 componentDidMount() {
-  axios.get('http://localhost:5000/users')
+  axios.get('http://localhost:5000/users/')
     .then(response => {
       if (response.data.length > 0) {
         this.setState({
@@ -75,9 +70,9 @@ onChangeLanguage(e) {
   });
 }
 
-onChangeDateCreated(dateCreated) {
+onChangeDate(date) {
   this.setState ({
-    dateCreated: dateCreated
+    date: date
   });
 }
 
@@ -88,22 +83,22 @@ onSubmit (e) {
     username: this.state.username,
     blogTitle: this.state.blogTitle,
     mainContent: this.state.mainContent,
-    dateCreated: this.state.dateCreated,
-    language: this.state.language,
     category: this.state.category,
+    language: this.state.language,
+    date: this.state.date
   }
 
   console.log(blogpost)
+  console.log(blogpost.date)
 
   axios.post('http://localhost:5000/blogposts/add', blogpost)
     .then(res => console.log(res.data));
 
-  window.location = '/';
 }
 
  render() {
   return(
-    <div className="">
+    <div className="blogFunctions">
       <div>Create Blog Post</div>
       <form onSubmit={this.onSubmit}>
         <div className="form-group">
@@ -135,7 +130,7 @@ onSubmit (e) {
         <div className="form-group">
           <label>Date Created: </label>
           <div className="">
-            <DatePicker selected={this.state.date} onChange={this.onChangeDateCreated} />
+            <DatePicker selected={this.state.date} onChange={this.onChangeDate} dateFormat="d/MM/yyyy" />
           </div>
         </div>
         <div className="form-group">

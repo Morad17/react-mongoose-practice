@@ -17,6 +17,7 @@ class EditBlogPost extends Component {
    this.onChangeMainContent = this.onChangeMainContent.bind(this)
    this.onChangeCategory = this.onChangeCategory.bind(this)
    this.onChangeLanguage = this.onChangeLanguage.bind(this)
+   this.onChangeDate = this.onChangeDate.bind(this)
    this.onSubmit = this.onSubmit.bind(this)
 
    this.state = {
@@ -39,7 +40,7 @@ componentDidMount() {
         mainContent: response.data.mainContent,
         category: response.data.category,
         language: response.data.language,
-        dateCreated: new Date(response.data.date)
+        date: new Date(response.data.date)
       })
     })
     .catch(function (error) {
@@ -56,7 +57,7 @@ componentDidMount() {
     })
 }
 
-/*----Exercise Variable Handlers ---*/
+/*----Blog Post Variable Handlers ---*/
  onChangeUsername(e) {
    this.setState ({
      username: e.target.value
@@ -87,9 +88,9 @@ onChangeLanguage(e) {
   });
 }
 
-onChangeDateCreated(dateCreated) {
+onChangeDate(date) {
   this.setState ({
-    dateCreated: dateCreated
+    date: date
   });
 }
 
@@ -103,7 +104,7 @@ onSubmit(e) {
     mainContent: this.state.mainContent,
     category: this.state.category,
     language: this.state.language,
-    dateCreated: this.state.dateCreated
+    date: this.state.date
   }
 
   console.log(blogpost)
@@ -116,7 +117,7 @@ onSubmit(e) {
 
  render() {
   return(
-    <div className="">
+    <div className="blogFunctions">
       <div>Edit Post</div>
       <form onSubmit={this.onSubmit}>
         <div className="form-group">
@@ -148,11 +149,11 @@ onSubmit(e) {
         <div className="form-group">
           <label>Date Updated: </label>
           <div className="">
-            <DatePicker selected={this.state.dateCreated} onChange={this.onChangeDateCreated} />
+            <DatePicker selected={this.state.date} onChange={this.onChangeDate} />
           </div>
         </div>
         <div className="form-group">
-          <input type="submit" value="Edit Exercise Log" className="btn btn-primary" />
+          <input type="submit" value="Edit Blog" className="btn btn-primary" />
         </div>
       </form>
     </div>
