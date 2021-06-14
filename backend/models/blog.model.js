@@ -7,12 +7,12 @@ const blogSchema = new Schema({
   blogTitle: { type: String, required: true },
   mainContent: { type: String, required: true },
   category: {type: String, required: true},
-  languange: {type: String, required: true},
-  date: { type: Date, required: true }
+  language: {type: String, required: true},
+  date: { type: Date, required: true },
 }, {
   timestamps: true,
 });
 
-const BlogPost = mongoose.model('BlogPost', blogSchema);
+const Blog = mongoose.model('Blog', blogSchema);
 
-module.exports = BlogPost;
+module.exports = Blog;

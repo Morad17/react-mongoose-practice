@@ -1,10 +1,10 @@
 const router = require('express').Router();
-let BlogPost = require('../models/blog.model');
+let Blog = require('../models/blog.model');
 
 /*------Gets All Blog Posts------*/
 router.route('/').get((req, res) => {
-  BlogPost.find()
-    .then(blogposts => res.json(blogposts))
+  Blog.find()
+    .then(blogs => res.json(blogs))
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
@@ -17,7 +17,7 @@ router.route('/add').post((req, res) => {
   const language = req.body.language;
   const date = Date.parse(req.body.date);
 
-  const newBlogPost = new BlogPost({
+  const newBlog = new Blog({
     username,
     blogTitle,
     mainContent,
@@ -26,37 +26,37 @@ router.route('/add').post((req, res) => {
     date,
   });
 
-  newBlogPost.save()
+  newBlog.save()
   .then(() => res.json('Blog posted!'))
   .catch(err => res.status(400).json('Error: ' + err));
 });
 
 /*------Gets a particular Blog Posts------*/
 router.route('/:id').get((req, res) => {
-  BlogPost.findById(req.params.id)
-    .then(blogpost => res.json(blogpost))
+  Blog.findById(req.params.id)
+    .then(blog => res.json(blog))
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
 /*------Delete a Blog Posts------*/
 router.route('/:id').delete((req, res) => {
-  BlogPost.findByIdAndDelete(req.params.id)
+  Blog.findByIdAndDelete(req.params.id)
     .then(() => res.json('Blog Post deleted.'))
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
 /*------Update a Blog Posts------*/
 router.route('/update/:id').post((req, res) => {
-  BlogPost.findById(req.params.id)
-    .then(blogpost => {
-      blogpost.username = req.body.username;
-      blogpost.blogTitle = req.body.blogTitle;
-      blogpost.mainContent = req.body.mainContent;
-      blogpost.category = req.body.category;
-      blogpost.language = req.body.language;
-      blogpost.date = Date.parse(req.body.date);
+  Blog.findById(req.params.id)
+    .then(blog => {
+      blog.username = req.body.username;
+      blog.blogTitle = req.body.blogTitle;
+      blog.mainContent = req.body.mainContent;
+      blog.category = req.body.category;
+      blog.language = req.body.language;
+      blog.date = Date.parse(req.body.date);
 
-      blogpost.save()
+      blog.save()
         .then(() => res.json('Blog updated!'))
         .catch(err => res.status(400).json('Error: ' + err));
     })

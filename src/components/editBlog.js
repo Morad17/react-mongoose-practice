@@ -5,10 +5,10 @@ import "react-datepicker/dist/react-datepicker.css";
 
 /**
 * @author
-* @class EditBlogPost
+* @class EditBlog
 **/
 
-class EditBlogPost extends Component {
+class EditBlog extends Component {
  constructor(props){
    super(props);
    
@@ -26,13 +26,13 @@ class EditBlogPost extends Component {
      mainContent: '',
      category: '',
      language: '',
-     dateUpdated: new Date(),
+     date: new Date(),
      users: []
    }
  }
 
 componentDidMount() {
-  axios.get('http://localhost:5000/blogposts/'+this.props.match.params.id)
+  axios.get('http://localhost:5000/blogs/'+this.props.match.params.id)
     .then(response => {
       this.setState({
         username: response.data.username,
@@ -98,7 +98,7 @@ onSubmit(e) {
   e.preventDefault();
 
 
-  const blogpost = {
+  const blog = {
     username: this.state.username,
     blogTitle: this.state.blogTitle,
     mainContent: this.state.mainContent,
@@ -107,9 +107,9 @@ onSubmit(e) {
     date: this.state.date
   }
 
-  console.log(blogpost)
+  console.log(blog)
 
-  axios.post('http://localhost:5000/blogposts/update/'+ this.props.match.params.id, blogpost)
+  axios.post('http://localhost:5000/blogs/update/'+ this.props.match.params.id, blog)
     .then(res => console.log(res.data));
 
   window.location = '/';
@@ -161,4 +161,4 @@ onSubmit(e) {
    }
  }
 
-export default EditBlogPost
+export default EditBlog

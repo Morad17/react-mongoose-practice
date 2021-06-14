@@ -4,7 +4,7 @@ import axios from 'axios'
 import DatePicker from 'react-datepicker'
 import "react-datepicker/dist/react-datepicker.css";
 
-class CreateBlogPost extends Component {
+class CreateBlog extends Component {
  constructor(props){
    super(props);
    
@@ -79,7 +79,7 @@ onChangeDate(date) {
 onSubmit (e) {
   e.preventDefault();
 
-  const blogpost = {
+  const blog = {
     username: this.state.username,
     blogTitle: this.state.blogTitle,
     mainContent: this.state.mainContent,
@@ -88,12 +88,13 @@ onSubmit (e) {
     date: this.state.date
   }
 
-  console.log(blogpost)
-  console.log(blogpost.date)
+  console.log(blog)
+  console.log(blog.date)
 
-  axios.post('http://localhost:5000/blogposts/add', blogpost)
+  axios.post('http://localhost:5000/blogs/add', blog)
     .then(res => console.log(res.data));
 
+    window.location ='/'
 }
 
  render() {
@@ -130,7 +131,7 @@ onSubmit (e) {
         <div className="form-group">
           <label>Date Created: </label>
           <div className="">
-            <DatePicker selected={this.state.date} onChange={this.onChangeDate} dateFormat="d/MM/yyyy" />
+            <DatePicker selected={this.state.date} onChange={this.onChangeDate} dateFormat="dd/MM/yyyy" />
           </div>
         </div>
         <div className="form-group">
@@ -143,4 +144,4 @@ onSubmit (e) {
  }
 
 
-export default CreateBlogPost
+export default CreateBlog

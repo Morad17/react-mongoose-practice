@@ -11,32 +11,32 @@ class BlogList extends Component {
   constructor(props) {
     super(props);
 
-    this.deleteBlogPost = this.deleteBlogPost.bind(this)
+    this.deleteBlog = this.deleteBlog.bind(this)
 
-    this.state = {blogposts: []};
+    this.state = {blogs: []};
   }
 
   componentDidMount() {
-    axios.get('http://localhost:5000/blogposts/')
+    axios.get('http://localhost:5000/blogs/')
       .then(response => {
-        this.setState({ blogposts: response.data })
+        this.setState({ blogs: response.data })
       })
       .catch((error) => {
         console.log(error)
       })
   }
 
-  deleteBlogPost(id) {
-    axios.delete('http://localhost:5000/blogposts/'+id)
+  deleteBlog(id) {
+    axios.delete('http://localhost:5000/blogs/'+id)
       .then(res => console.log(res.data));
     this.setState({
-      blogposts: this.state.blogposts.filter(el => el._id !== id)
+      blogs: this.state.blogs.filter(el => el._id !== id)
     })
   }
 
   blogList() {
-    return this.state.blogposts.map(currentBlogPost => {
-      return <BlogCard blogpost={currentBlogPost} deleteBlogPost={this.deleteBlogPost} key={currentBlogPost._id} />
+    return this.state.blogs.map(currentBlog => {
+      return <BlogCard blog={currentBlog} deleteBlog={this.deleteBlog} key={currentBlog._id} />
     })
   }
 

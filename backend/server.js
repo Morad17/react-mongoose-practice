@@ -11,17 +11,17 @@ app.use(cors());
 app.use(express.json());
 
 const uri = process.env.ATLAS_URI;
-mongoose.connect( uri, { useNewUrlParser: true, useCreateIndex: true });
+mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true });
 
 const connection = mongoose.connection;
 connection.once('open', () => {
     console.log("MongoDB database connection established successfully");
 })
 
-const blogsRouter = require('./routes/blogposts')
+const blogsRouter = require('./routes/blogs')
 const usersRouter = require('./routes/users')
 
-app.use('/blogposts', blogsRouter)
+app.use('/blogs', blogsRouter)
 app.use('/users', usersRouter)
 
 app.listen(port, () => {

@@ -7,9 +7,9 @@ import data from '../assets/blog.json'
 import Navbar from '../components/navbar'
 import PostFunctions from '../components/postFunctions'
 
-import CreateBlogPost from '../components/createBlogPost'
+import CreateBlog from '../components/createBlog'
 import CreateUser from '../components/createUser'
-import EditBlogPost from '../components/editBlogPost'
+import EditBlog from '../components/editBlog'
 import BlogList from '../components/blogList'
 
 class Home extends React.Component {
@@ -43,8 +43,8 @@ class Home extends React.Component {
                         <div className="blogHome">
                         <PostFunctions />
                             <Route path="/" exact component={BlogList} />
-                            <Route path="/edit/:id" component={EditBlogPost} />
-                            <Route path="/create" component={CreateBlogPost} />
+                            <Route path="/edit/:id" component={EditBlog} />
+                            <Route path="/create" component={CreateBlog} />
                             <Route path="/user" component={CreateUser} />
                         </div>
                     <Sidebar />

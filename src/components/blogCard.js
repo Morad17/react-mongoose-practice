@@ -15,12 +15,12 @@ const BlogCard = (props) => {
         <div className="BlogCard-image">
           <img className="" src="images/blog-template.jpg" alt="" />
         </div>
-        <h2 className="BlogCard-title">{props.blogpost.blogTitle}</h2>
+        <h2 className="BlogCard-title">{props.blog.blogTitle}</h2>
         <div className="BlogCard-text">
-          <p>{props.blogpost.language}</p>
-          <p>{props.blogpost.username},{props.date}</p>
+          <p>{props.blog.language}</p>
+          <p>{props.blog.username},{props.date}</p>
           <div className="col">
-            <Link to={"/edit/"+props.blogpost._id}>edit</Link>| <a href="#" onClick={() => { props.deleteBlogPost(props.blogpost._id) }}>delete</a>
+            <Link to={"/edit/"+props.blog._id}>edit</Link>| <a href="#" onClick={() => { props.deleteBlog(props.blog._id) }}>delete</a>
           </div>
         </div>
     </div>
