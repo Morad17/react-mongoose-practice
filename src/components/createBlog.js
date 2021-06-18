@@ -23,6 +23,7 @@ class CreateBlog extends Component {
      category: '',
      language: '',
      date: new Date(),
+     featured: false,
      users: []
    }
  }
@@ -76,6 +77,7 @@ onChangeDate(date) {
   });
 }
 
+
 onSubmit (e) {
   e.preventDefault();
 
@@ -85,7 +87,8 @@ onSubmit (e) {
     mainContent: this.state.mainContent,
     category: this.state.category,
     language: this.state.language,
-    date: this.state.date
+    date: this.state.date,
+    featured: false, 
   }
 
   console.log(blog)
@@ -134,6 +137,7 @@ onSubmit (e) {
             <DatePicker selected={this.state.date} onChange={this.onChangeDate} dateFormat="dd/MM/yyyy" />
           </div>
         </div>
+        
         <div className="form-group">
           <input type="submit" value="Create Blog" className="btn btn-primary" />
         </div>

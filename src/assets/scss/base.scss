@@ -3,9 +3,13 @@
 @import './navbar';
 @import './sidebar';
 @import './post-functions';
+@import './create-blog';
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&family=Source+Code+Pro&display=swap');
 
 body {
     background: #e9eaed;
+    font-family: 'Noto Sans JP', sans-serif;
 }
 .App{
     width:90%;

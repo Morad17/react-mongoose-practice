@@ -9,6 +9,7 @@ const blogSchema = new Schema({
   category: {type: String, required: true},
   language: {type: String, required: true},
   date: { type: Date, required: true },
+  featured: { type: Boolean, required: true }
 }, {
   timestamps: true,
 });

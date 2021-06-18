@@ -16,6 +16,7 @@ router.route('/add').post((req, res) => {
   const category = req.body.category;
   const language = req.body.language;
   const date = Date.parse(req.body.date);
+  const featured = req.body.featured;
 
   const newBlog = new Blog({
     username,
@@ -24,6 +25,7 @@ router.route('/add').post((req, res) => {
     category,
     language,
     date,
+    featured,
   });
 
   newBlog.save()
@@ -55,6 +57,7 @@ router.route('/update/:id').post((req, res) => {
       blog.category = req.body.category;
       blog.language = req.body.language;
       blog.date = Date.parse(req.body.date);
+      blog.featured = req.body.featured;
 
       blog.save()
         .then(() => res.json('Blog updated!'))

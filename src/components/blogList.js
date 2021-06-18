@@ -34,6 +34,17 @@ class BlogList extends Component {
     })
   }
 
+  featuredBlogList() {
+    const featBlogs = this.state.blogs
+
+    return( 
+      featBlogs.filter(featBlogs => featBlogs.featured == false).map(currentBlog => {
+      console.log(this.state.blogs)
+      return <BlogCard blog={currentBlog} deleteBlog={this.deleteBlog} key={currentBlog._id} />}
+      )
+    )
+  }
+
   blogList() {
     return this.state.blogs.map(currentBlog => {
       return <BlogCard blog={currentBlog} deleteBlog={this.deleteBlog} key={currentBlog._id} />
@@ -43,8 +54,13 @@ class BlogList extends Component {
 
   render() {
     return(
-    <div className="blogFunctions">
-        {this.blogList()}
+      <div className="">
+        <div className="blogFunctions">
+          {this.featuredBlogList()}
+      </div>
+      <div className="blogFunctions">
+          {this.blogList()}
+      </div>
     </div>
       )
     }
