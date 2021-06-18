@@ -1,46 +1,61 @@
-import React, {useEffect, useState} from 'react'
+import React, { Component } from 'react'
 import {NavLink} from 'react-router-dom'
+import axios from 'axios'
 import Card from './card'
 import '../assets/scss/base.scss'
-import Data from '../assets/blog.json'
 
-const Sidebar = (props) => {
+class Sidebar extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {blogs: []}
+    }
 
+    componentDidMount() {
+        axios.get('http://localhost:5000/blogs/')
+          .then(response => {
+            this.setState({ blogs: response.data })
+          })
+          .catch((error) => {
+            console.log(error)
+          })
+      }
 
-    return(
-        <div className="sidebar-container">
-            <Card style={{ marginBottom:'20px', padding:'10px', boxSizing:'border-box'}}>
-                <div className="card-header">
-                    <span>About Us</span>
+    render() {
+        return(
+            <div className="sidebar-container">
+                <Card style={{ marginBottom:'20px', padding:'10px', boxSizing:'border-box'}}>
+                    <div className="card-header">
+                        <span>About Us</span>
+                        </div>
+                        <div className="profile-image">
+                        <img src="/images/profile-img.png" alt=""/>
+                        </div>
+                        <div className="card-body center">
+                        <p>Morad El Bouchikhi Senior Developer</p>
                     </div>
-                    <div className="profile-image">
-                    <img src="/images/profile-img.png" alt=""/>
+                </Card>
+                <Card>
+                    <div className="card-header">
+                        <span>Social Network</span>
                     </div>
-                    <div className="card-body center">
-                    <p>Morad El Bouchikhi Senior Developer</p>
-                </div>
-            </Card>
-            <Card>
-                <div className="card-header">
-                    <span>Social Network</span>
-                </div>
-            </Card>
-            <Card>
-                <div className="card-header">
-                    <span>Recent posts</span>
-                </div>
+                </Card>
+                <Card>
+                    <div className="card-header">
+                        <span>Recent posts</span>
+                    </div>
 
-                <div className="">
-                    {Data.map((data, index) => {
-                    return  <Card>
-                                <div className="blogTitles">{data.blogTitle}</div>
-                            </Card>
-                    })}
-                </div>
-            </Card>
+                    <div className="">
+                        {this.state.blogs.map((blog => {
+                        return  <Card>
+                                    <div className="blogTitles">{blog.blogTitle}</div>
+                                </Card>
+                        }))}
+                    </div>
+                </Card>
 
-        </div>
-    )
+            </div>
+        )
+    }
 }
 
     export default Sidebar

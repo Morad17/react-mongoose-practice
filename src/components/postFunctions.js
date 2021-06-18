@@ -1,12 +1,10 @@
 import React from 'react'
 import Card from './card'
-import Data from '../assets/blog.json'
+
 import '../assets/scss/base.scss'
 
 
 const PostFunctions = (props) => {
-
-    let dataTotal = 0
 
     return(
         <div className="post-functions">
@@ -14,9 +12,6 @@ const PostFunctions = (props) => {
                 <div className="post-bar">
                 <ul className="post-bar-navigation">
                     <li className="total-posts">
-                        {Data.forEach(item => {
-                            dataTotal += 1;})}
-                            {dataTotal}
                     </li>
                     <li>Trending</li>
                     <li className="">Latest</li>

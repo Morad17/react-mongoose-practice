@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Route } from "react-router-dom"
 
 import Hero from '../components/hero'
 import Sidebar from '../components/sidebar'
-import data from '../assets/blog.json'
 import Navbar from '../components/navbar'
 import PostFunctions from '../components/postFunctions'
 
@@ -16,22 +15,8 @@ class Home extends React.Component {
 
     constructor(props){
         super(props)
-        this.state={
-            data:data,
-            direction: {
-
-            }
-        }
-        this.sortBy = this.sortBy.bind(this)
+        this.state= {}
     }
-
-    sortBy(key) {
-      this.setState({
-        data: data.sort( (a, b) => {
-        return (a[key] - b[key] )
-                    })
-              })}
-
     render(){ 
         return(    
             <div>

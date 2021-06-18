@@ -1,0 +1,17 @@
+
+.blogFunctions{
+    display: flex;
+    flex-direction: row;
+    .BlogCard{
+        margin-right: 1rem;
+    }
+}
+
+.featuredBlogs{
+    margin-bottom: 5rem;
+    
+
+    .BlogCard{
+        width: calc(20% - 1rem);
+    }
+}

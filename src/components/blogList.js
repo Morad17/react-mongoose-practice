@@ -12,7 +12,6 @@ class BlogList extends Component {
     super(props);
 
     this.deleteBlog = this.deleteBlog.bind(this)
-
     this.state = {blogs: []};
   }
 
@@ -38,7 +37,7 @@ class BlogList extends Component {
     const featBlogs = this.state.blogs
 
     return( 
-      featBlogs.filter(featBlogs => featBlogs.featured == false).map(currentBlog => {
+      featBlogs.filter(featBlogs => featBlogs.featured === true).map(currentBlog => {
       console.log(this.state.blogs)
       return <BlogCard blog={currentBlog} deleteBlog={this.deleteBlog} key={currentBlog._id} />}
       )
@@ -55,7 +54,8 @@ class BlogList extends Component {
   render() {
     return(
       <div className="">
-        <div className="blogFunctions">
+        <h2 className="featured-heading">Featured Blogs</h2>
+        <div className="blogFunctions featuredBlogs">
           {this.featuredBlogList()}
       </div>
       <div className="blogFunctions">
