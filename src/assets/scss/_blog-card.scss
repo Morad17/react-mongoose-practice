@@ -1,13 +1,18 @@
 .BlogCard{
-    width: calc(25% - 1rem);
+    width: calc(25% - .5rem);
     background-color: white;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
     
 
 .BlogCard-title, .BlogCard-text {
-    padding: 10px 10px 10px 20px ;
+    padding: 5px 5px 5px 20px ;
     font-family: 'Source Code Pro', monospace;
+}
+
+.BlogCard-title{
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 .BlogCard-image img{
@@ -20,18 +25,17 @@
 
 .edit-button, .delete-button{
     font-size: .9rem;
-    color: white;
-    border-radius: 15px;;
     width: 1rem;
-    padding: .4rem;
-    border: .5px solid black;
+    color: black;
+    border-bottom: 2px solid black;
+    font-weight: 600;
 }
 
 .edit-button{
-    background-color: #32be3f;
+    border-color: #32be3f;
 }
 .delete-button{
-    background-color: #ff1818e0;
+    border-color: #ff1818e0;
 }
 }
 

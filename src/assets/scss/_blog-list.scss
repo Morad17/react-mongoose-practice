@@ -2,8 +2,9 @@
 .blogFunctions{
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
     .BlogCard{
-        margin-right: 1rem;
+        margin-right: 1.5rem;
     }
 }
 
@@ -12,6 +13,6 @@
     
 
     .BlogCard{
-        width: calc(20% - 1rem);
+        width: calc(25% - .5rem);
     }
 }
