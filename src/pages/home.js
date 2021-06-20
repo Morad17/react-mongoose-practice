@@ -4,7 +4,6 @@ import { BrowserRouter as Router, Route } from "react-router-dom"
 import Hero from '../components/hero'
 import Sidebar from '../components/sidebar'
 import Navbar from '../components/navbar'
-import PostFunctions from '../components/postFunctions'
 
 import CreateBlog from '../components/createBlog'
 import CreateUser from '../components/createUser'
@@ -26,7 +25,6 @@ class Home extends React.Component {
                     <Hero />
                     <div className="row content">
                         <div className="blogHome">
-                        <PostFunctions />
                             <Route path="/" exact component={BlogList} />
                             <Route path="/edit/:id" component={EditBlog} />
                             <Route path="/create" component={CreateBlog} />

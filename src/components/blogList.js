@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import axios from'axios'
+import PostFunctions from '../components/postFunctions'
 
 import BlogCard from './blogCard'
 
@@ -58,7 +59,9 @@ class BlogList extends Component {
         <div className="blogFunctions featuredBlogs">
           {this.featuredBlogList()}
       </div>
+      <PostFunctions />
       <div className="blogFunctions">
+      
           {this.blogList()}
       </div>
     </div>

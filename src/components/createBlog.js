@@ -124,12 +124,23 @@ onSubmit (e) {
           <input type="text" className="form-control" value={this.state.mainContent} onChange={this.onChangeMainContent} />
         </div>
         <div className="form-group">
-          <label>Category</label>
-          <input type="text" className="form-control" value={this.state.category} onChange={this.onChangeCategory} />
+          <label>Blog Type</label>
+          <select name="select-category"  onChange={this.onChangeCategory}>
+            <option type="text" className="form-control" value={'Journal'} >Journal</option>
+            <option type="text" className="form-control" value={'Article'} >Article</option>
+            <option type="text" className="form-control" value={'Tutorial'} >Tutorial</option>
+          </select>
         </div>
         <div className="form-group">
-          <label>Language</label>
-          <input type="text" className="form-control" value={this.state.language} onChange={this.onChangeLanguage} />
+          <label>Category</label>
+          <select name="select-language" onChange={this.onChangeLanguage}></select>
+          <option type="text" className="form-control" value={this.state.language} >HTML</option>
+          <option type="text" className="form-control" value={this.state.language} >CSS</option>
+          <option type="text" className="form-control" value={this.state.language} >JAVACRIPT</option>
+          <option type="text" className="form-control" value={this.state.language} >REACT</option>
+          <option type="text" className="form-control" value={this.state.language} >PYTHON</option>
+          <option type="text" className="form-control" value={this.state.language} >DATABASE</option>
+          <option type="text" className="form-control" value={this.state.language} >OTHER</option>
         </div>
         <div className="form-group">
           <label>Date Created: </label>
