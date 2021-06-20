@@ -15,7 +15,7 @@ const PostFunctions = (props) => {
                     </li>
                     <li>Trending</li>
                     <li className="">Latest</li>
-                    <li className="">Category</li>
+                    <li className="">blogType</li>
                 </ul>
                 <div className="search-bar">
                     <form onSubmit>

@@ -13,8 +13,8 @@ router.route('/add').post((req, res) => {
   const username = req.body.username;
   const blogTitle = req.body.blogTitle;
   const mainContent = req.body.mainContent;
+  const blogType = req.body.blogType;
   const category = req.body.category;
-  const language = req.body.language;
   const date = Date.parse(req.body.date);
   const featured = req.body.featured;
 
@@ -22,8 +22,8 @@ router.route('/add').post((req, res) => {
     username,
     blogTitle,
     mainContent,
+    blogType,
     category,
-    language,
     date,
     featured,
   });
@@ -54,8 +54,8 @@ router.route('/update/:id').post((req, res) => {
       blog.username = req.body.username;
       blog.blogTitle = req.body.blogTitle;
       blog.mainContent = req.body.mainContent;
+      blog.blogType = req.body.blogType;
       blog.category = req.body.category;
-      blog.language = req.body.language;
       blog.date = Date.parse(req.body.date);
       blog.featured = req.body.featured;
 

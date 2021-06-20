@@ -12,16 +12,16 @@ class CreateBlog extends Component {
    this.onChangeBlogTitle = this.onChangeBlogTitle.bind(this)
    this.onChangeMainContent = this.onChangeMainContent.bind(this)
    this.onChangeDate = this.onChangeDate.bind(this)
+   this.onChangeBlogType = this.onChangeBlogType.bind(this)
    this.onChangeCategory = this.onChangeCategory.bind(this)
-   this.onChangeLanguage = this.onChangeLanguage.bind(this)
    this.onSubmit = this.onSubmit.bind(this)
 
    this.state = {
      username: '',
      blogTitle: '',
      mainContent: '',
+     blogType: '',
      category: '',
-     language: '',
      date: new Date(),
      featured: false,
      users: []
@@ -59,15 +59,15 @@ onChangeMainContent(e) {
   });
 }
 
-onChangeCategory(e) {
+onChangeBlogType(e) {
   this.setState ({
-    category: e.target.value
+    blogType: e.target.value
   });
 }
 
-onChangeLanguage(e) {
+onChangeCategory(e) {
   this.setState ({
-    language: e.target.value
+    category: e.target.value
   });
 }
 
@@ -85,8 +85,8 @@ onSubmit (e) {
     username: this.state.username,
     blogTitle: this.state.blogTitle,
     mainContent: this.state.mainContent,
+    blogType: this.state.blogType,
     category: this.state.category,
-    language: this.state.language,
     date: this.state.date,
     featured: false, 
   }
@@ -102,12 +102,15 @@ onSubmit (e) {
 
  render() {
   return(
-    <div className="blogFunctions">
-      <div>Create Blog Post</div>
+    <div className="create-blog-row">
+      <h2 class="create-blog-heading">Create Blog Post</h2>
+      <hr />
+      <div className="create-blog-form">
       <form onSubmit={this.onSubmit}>
         <div className="form-group">
           <label>Username: </label>
           <select ref="userInput" required className="form-control" value={this.state.username} onChange={this.onChangeUsername}>
+            <option disabled="true" >Username</option>
             {this.state.users.map((user)=> {
               return <option key={user} value={user}>
                 {user}
@@ -125,7 +128,7 @@ onSubmit (e) {
         </div>
         <div className="form-group">
           <label>Blog Type</label>
-          <select name="select-category"  onChange={this.onChangeCategory}>
+          <select name="select-blogType"  onChange={this.onChangeBlogType}>
             <option type="text" className="form-control" value={'Journal'} >Journal</option>
             <option type="text" className="form-control" value={'Article'} >Article</option>
             <option type="text" className="form-control" value={'Tutorial'} >Tutorial</option>
@@ -133,14 +136,15 @@ onSubmit (e) {
         </div>
         <div className="form-group">
           <label>Category</label>
-          <select name="select-language" onChange={this.onChangeLanguage}></select>
-          <option type="text" className="form-control" value={this.state.language} >HTML</option>
-          <option type="text" className="form-control" value={this.state.language} >CSS</option>
-          <option type="text" className="form-control" value={this.state.language} >JAVACRIPT</option>
-          <option type="text" className="form-control" value={this.state.language} >REACT</option>
-          <option type="text" className="form-control" value={this.state.language} >PYTHON</option>
-          <option type="text" className="form-control" value={this.state.language} >DATABASE</option>
-          <option type="text" className="form-control" value={this.state.language} >OTHER</option>
+          <select name="select-category" onChange={this.onChangeCategory}>
+            <option type="text" className="form-control" value={this.state.category} >HTML</option>
+            <option type="text" className="form-control" value={this.state.category} >CSS</option>
+            <option type="text" className="form-control" value={this.state.category} >JAVACRIPT</option>
+            <option type="text" className="form-control" value={this.state.category} >REACT</option>
+            <option type="text" className="form-control" value={this.state.category} >PYTHON</option>
+            <option type="text" className="form-control" value={this.state.category} >DATABASE</option>
+            <option type="text" className="form-control" value={this.state.category} >OTHER</option>
+          </select>
         </div>
         <div className="form-group">
           <label>Date Created: </label>
@@ -153,6 +157,7 @@ onSubmit (e) {
           <input type="submit" value="Create Blog" className="btn btn-primary" />
         </div>
       </form>
+      </div>
     </div>
     )
    }

@@ -15,8 +15,8 @@ class EditBlog extends Component {
    this.onChangeUsername = this.onChangeUsername.bind(this)
    this.onChangeBlogTitle = this.onChangeBlogTitle.bind(this)
    this.onChangeMainContent = this.onChangeMainContent.bind(this)
+   this.onChangeBlogType = this.onChangeBlogType.bind(this)
    this.onChangeCategory = this.onChangeCategory.bind(this)
-   this.onChangeLanguage = this.onChangeLanguage.bind(this)
    this.onChangeDate = this.onChangeDate.bind(this)
    this.onSubmit = this.onSubmit.bind(this)
 
@@ -24,8 +24,8 @@ class EditBlog extends Component {
      username: '',
      blogTitle: '',
      mainContent: '',
+     blogType: '',
      category: '',
-     language: '',
      date: new Date(),
      users: []
    }
@@ -38,8 +38,8 @@ componentDidMount() {
         username: response.data.username,
         blogTitle: response.data.blogTitle,
         mainContent: response.data.mainContent,
+        blogType: response.data.blogType,
         category: response.data.category,
-        language: response.data.language,
         date: new Date(response.data.date)
       })
     })
@@ -76,15 +76,15 @@ onChangeMainContent(e) {
   });
 }
 
-onChangeCategory(e) {
+onChangeBlogType(e) {
   this.setState ({
-    category: e.target.value
+    blogType: e.target.value
   });
 }
 
-onChangeLanguage(e) {
+onChangeCategory(e) {
   this.setState ({
-    language: e.target.value
+    category: e.target.value
   });
 }
 
@@ -102,8 +102,8 @@ onSubmit(e) {
     username: this.state.username,
     blogTitle: this.state.blogTitle,
     mainContent: this.state.mainContent,
+    blogType: this.state.blogType,
     category: this.state.category,
-    language: this.state.language,
     date: this.state.date
   }
 
@@ -139,12 +139,12 @@ onSubmit(e) {
           <input type="text" className="form-control" value={this.state.mainContent} onChange={this.onChangeMainContent} />
         </div>
         <div className="form-group">
-          <label>Category: </label>
-          <input type="text" className="form-control" value={this.state.category} onChange={this.onChangeCategory} />
+          <label>blogType: </label>
+          <input type="text" className="form-control" value={this.state.blogType} onChange={this.onChangeBlogType} />
         </div>
         <div className="form-group">
-          <label>Language</label>
-          <input type="text" className="form-control" value={this.state.language} onChange={this.onChangeLanguage} />
+          <label>Category</label>
+          <input type="text" className="form-control" value={this.state.category} onChange={this.onChangeCategory} />
         </div>
         <div className="form-group">
           <label>Date Updated: </label>
