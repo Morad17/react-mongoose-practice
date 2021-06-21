@@ -110,7 +110,7 @@ onSubmit (e) {
         <div className="form-group">
           <label>Username: </label>
           <select ref="userInput" required className="form-control" value={this.state.username} onChange={this.onChangeUsername}>
-            <option disabled="true" >Username</option>
+            <option type="text" value="" className="default-value">Select Username</option>
             {this.state.users.map((user)=> {
               return <option key={user} value={user}>
                 {user}
@@ -128,22 +128,24 @@ onSubmit (e) {
         </div>
         <div className="form-group">
           <label>Blog Type</label>
-          <select name="select-blogType"  onChange={this.onChangeBlogType}>
-            <option type="text" className="form-control" value={'Journal'} >Journal</option>
-            <option type="text" className="form-control" value={'Article'} >Article</option>
-            <option type="text" className="form-control" value={'Tutorial'} >Tutorial</option>
+          <select name="select-blogType" onChange={this.onChangeBlogType} required>
+            <option type="text" className="form-control default-value" value="" >Select Blog Type</option>
+            <option type="text" className="form-control" value='Journal' >Journal</option>
+            <option type="text" className="form-control" value='Article' >Article</option>
+            <option type="text" className="form-control" value='Tutorial' >Tutorial</option>
           </select>
         </div>
         <div className="form-group">
           <label>Category</label>
-          <select name="select-category" onChange={this.onChangeCategory}>
-            <option type="text" className="form-control" value={this.state.category} >HTML</option>
-            <option type="text" className="form-control" value={this.state.category} >CSS</option>
-            <option type="text" className="form-control" value={this.state.category} >JAVACRIPT</option>
-            <option type="text" className="form-control" value={this.state.category} >REACT</option>
-            <option type="text" className="form-control" value={this.state.category} >PYTHON</option>
-            <option type="text" className="form-control" value={this.state.category} >DATABASE</option>
-            <option type="text" className="form-control" value={this.state.category} >OTHER</option>
+          <select name="select-category" onChange={this.onChangeCategory} required >
+            <option type="text" className="form-control default-value" value="" >Select Category</option>
+            <option type="text" className="form-control" value='Html' >HTML</option>
+            <option type="text" className="form-control" value='Css' >CSS</option>
+            <option type="text" className="form-control" value='Javascript' >JAVACRIPT</option>
+            <option type="text" className="form-control" value='React' >REACT</option>
+            <option type="text" className="form-control" value='Python' >PYTHON</option>
+            <option type="text" className="form-control" value='Database' >DATABASE</option>
+            <option type="text" className="form-control" value='Other' >OTHER</option>
           </select>
         </div>
         <div className="form-group">
