@@ -16,7 +16,7 @@ const BlogCard = (props) => {
    var splitDate = originalDate.split("-")
    var reverseDate = splitDate.reverse()
    var finalDate = reverseDate.join()
-   const formatDate = finalDate.replace( /,/g, ' ')
+   const formatDate = finalDate.replace( /,/g, '-')
 
 
 

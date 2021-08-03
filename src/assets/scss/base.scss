@@ -36,5 +36,14 @@ body {
   font-weight:600;
 }
 
+select, option{
+  color: black;
+}
+.default-value, select:invalid,
+select option[value=""] {
+  color: #999998f6;
+
+}
+
 /*-----variable---*/
 $border-color: #a3aeb9;
