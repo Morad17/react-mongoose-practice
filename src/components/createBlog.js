@@ -3,6 +3,12 @@ import axios from 'axios'
 
 import DatePicker from 'react-datepicker'
 import "react-datepicker/dist/react-datepicker.css";
+import {
+  LiveProvider,
+  LiveEditor,
+  LiveError,
+  LivePreview
+} from 'react-live'
 
 class CreateBlog extends Component {
  constructor(props){
@@ -153,6 +159,14 @@ onSubmit (e) {
           </div>
         </div>
         
+        <div>
+          <LiveProvider code="<strong>Hello World!</strong>">
+            <LiveEditor />
+            <LiveError />
+            <LivePreview />
+          </LiveProvider>
+        </div>
+
         <div className="form-group">
           <input type="submit" value="Create Blog" className="btn btn-primary" />
         </div>

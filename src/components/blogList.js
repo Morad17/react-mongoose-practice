@@ -2,12 +2,17 @@ import React, { Component } from 'react'
 import axios from'axios'
 import PostFunctions from '../components/postFunctions'
 
+  import {MDXProvider} from '@mdx-js/react'
+import {renderToString} from 'react-dom/server'
+
 import BlogCard from './blogCard'
 
 /**
 * @author
 * @class BlogList
 **/
+const H1 = props => <h1 style={{color: 'tomato'}} {...props} />
+
 class BlogList extends Component {
   constructor(props) {
     super(props);
@@ -16,6 +21,7 @@ class BlogList extends Component {
     this.state = {blogs: []};
   }
 
+  
   componentDidMount() {
     axios.get('http://localhost:5000/blogs/')
       .then(response => {
