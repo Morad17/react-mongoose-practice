@@ -111,6 +111,7 @@ onSubmit (e) {
     <div className="create-blog-row">
       <h2 class="create-blog-heading">Create Blog Post</h2>
       <hr />
+      {/* Form for submitting post */}
       <div className="create-blog-form">
       <form onSubmit={this.onSubmit}>
         <div className="form-group">
@@ -127,10 +128,6 @@ onSubmit (e) {
         <div className="form-group">
           <label>Blog Title</label>
           <input type="text" required className="form-control" value={this.state.blogTitle} onChange={this.onChangeBlogTitle} />
-        </div>
-        <div className="form-group">
-          <label>MainContent </label>
-          <input type="text" className="form-control" value={this.state.mainContent} onChange={this.onChangeMainContent} />
         </div>
         <div className="form-group">
           <label>Blog Type</label>
@@ -160,15 +157,19 @@ onSubmit (e) {
             <DatePicker selected={this.state.date} onChange={this.onChangeDate} dateFormat="dd/MM/yyyy" />
           </div>
         </div>
-        
-        <div>
-          <LiveProvider code="<strong>Hello World!</strong>">
-            <LiveEditor />
-            <LiveError />
-            <LivePreview />
+        <div className="form-group">
+          <label>Main Content </label>
+          
+        <div className="live-provider">
+          <h2 className="center">Create Your Blog Content</h2>
+          <LiveProvider  code="<div></div>">
+            <LiveEditor className="live-editor" style={{ color:"red !important",opacity:"1 !important", fontWeight:"bold !important" }}/>
+            <LiveError className="live-error"/>
+            <LivePreview className="live-preview"/>
           </LiveProvider>
         </div>
-
+            <input type="text" className="form-control" value={this.state.mainContent} onChange={this.onChangeMainContent} />
+        </div>
         <div className="form-group">
           <input type="submit" value="Create Blog" className="btn btn-primary" />
         </div>
