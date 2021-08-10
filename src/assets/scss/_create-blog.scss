@@ -26,15 +26,39 @@
     border: none;
     border-bottom: 2px solid green;
     background-color: transparent;
+    font-size: 18px;
+    transition: color 2s;
+
     }
     input, select{
         display: block;
         width: 70%;
         padding: 10px;
+        border: none;
+        border-bottom: 2px solid green;
+        background-color: transparent;
+        color: black;
+    }
+
+    select .inpSelec {
+        color: green;
     }
 
     select{
         width: 73%;
+        font-size: 16px;
+        color: black;
+
+    }
+
+    select:focus, input:focus, select:hover, input:hover{
+        outline: none;
+        border-color: red;
+    }
+
+    option{
+        background-color:#e9eaed;
+        border: none;
     }
 
     .react-datepicker-wrapper{
@@ -46,20 +70,29 @@
         margin-left: 10%;
     }
 }
+
+
 /*-----React Live------*/
 
 .live-provider{
     width: 80%;
-
-    h2{
-        margin-top: 50px;
-        margin-bottom: 50px;
-
+    height: 50vh;
+    background-color: rgb(1, 1, 53);
+    color: white;
+    border: 1px solid gray;
+    border-radius: 10px;
+    margin: 50px 0;
+    // .playground-header{
+    //     background-color: #292929;
+    // }
+    h3{
+        margin: 0 0 20px 0;
+        border-bottom: 1px solid gray;
     }
     .live-editor{
-        border: .5px solid gray;
         margin-bottom: 50px;
         font-weight: normal;
+        
 
         .token-line, .token-line span{
             opacity: 1 !important;
@@ -70,12 +103,21 @@
             color: red !important;
         }
     }
-    
+    .live-edtor:hover{
+        outline: none;
+        background-color: none;
+    }
+    .live-editor textarea:hover, .live-editor textarea:focus{
+        outline:none;
+    }
+
     .live-error{
     border: .5px solid gray;
     font-size: 1.2rem;
     color: red;
     }
+
+    
 
     .live-preview{
         border: .5px solid gray;

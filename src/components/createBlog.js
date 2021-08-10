@@ -161,7 +161,9 @@ onSubmit (e) {
           <label>Main Content </label>
           
         <div className="live-provider">
-          <h2 className="center">Create Your Blog Content</h2>
+          <div className="playground-header">
+            <h3 className="center">Live Content Viewer</h3>
+          </div>
           <LiveProvider  code="<div></div>">
             <LiveEditor className="live-editor" style={{ color:"red !important",opacity:"1 !important", fontWeight:"bold !important" }}/>
             <LiveError className="live-error"/>
