@@ -117,10 +117,21 @@
     color: red;
     }
 
-    
+    .playground-wrapper{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color:black;
+        background: white;
+        width: 250px;
+        max-width: 80vw;
+        height: 250px;
+        margin: 0 auto;
+        border-radius: 4px;
+    }
 
     .live-preview{
-        border: .5px solid gray;
+        background-color: darkgrey;
     }
 
 }

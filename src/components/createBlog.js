@@ -164,9 +164,17 @@ onSubmit (e) {
           <div className="playground-header">
             <h3 className="center">Live Content Viewer</h3>
           </div>
-          <LiveProvider  code="<div></div>">
+          <LiveProvider  code="<div className='playground-wrapper'></div>">
+            <div className="">
+              <div className="toolbar">
+                <button onClick={document.createElement('div')}>
+                  Divider
+                </button>
+              </div>
+            </div>
             <LiveEditor className="live-editor" style={{ color:"red !important",opacity:"1 !important", fontWeight:"bold !important" }}/>
             <LiveError className="live-error"/>
+            <hr/>
             <LivePreview className="live-preview"/>
           </LiveProvider>
         </div>
