@@ -21,6 +21,7 @@ class CreateBlog extends Component {
    this.onChangeBlogType = this.onChangeBlogType.bind(this)
    this.onChangeCategory = this.onChangeCategory.bind(this)
    this.onSubmit = this.onSubmit.bind(this)
+   this.appendMe = this.appendMe.bind(this)
 
    this.state = {
      username: '',
@@ -106,13 +107,43 @@ onSubmit (e) {
     window.location ='/'
 }
 
+appendMe() { 
+  let addDiv = document.createElement('P')
+  let codeBox = document.getElementById('playground-wrapper')
+  let appendedDiv = codeBox.appendChild(addDiv)
+
+  return appendedDiv
+}
+
  render() {
+  
+  
+
   return(
     <div className="create-blog-row">
       <h2 class="create-blog-heading">Create Blog Post</h2>
       <hr />
       {/* Form for submitting post */}
       <div className="create-blog-form">
+        <div className="live-provider">
+            <div className="playground-header">
+              <h3 className="center">Live Content Viewer</h3>
+            </div>
+            <LiveProvider  code="<div id='playground-wrapper' className='playground-wrapper'></div>">
+              <div className="">
+                <div className="toolbar">
+                  <button onClick={this.appendMe}>
+                    Divider
+                  </button>
+                </div>
+              </div>
+              <LiveEditor className="live-editor" style={{ color:"red !important",opacity:"1 !important", fontWeight:"bold !important" }}/>
+              <LiveError className="live-error"/>
+              <hr/>
+              <LivePreview className="live-preview" id="live-preview"></LivePreview>
+            </LiveProvider>
+        </div>
+
       <form onSubmit={this.onSubmit}>
         <div className="form-group">
           <label>Username: </label>
@@ -159,25 +190,6 @@ onSubmit (e) {
         </div>
         <div className="form-group">
           <label>Main Content </label>
-          
-        <div className="live-provider">
-          <div className="playground-header">
-            <h3 className="center">Live Content Viewer</h3>
-          </div>
-          <LiveProvider  code="<div className='playground-wrapper'></div>">
-            <div className="">
-              <div className="toolbar">
-                <button onClick={document.createElement('div')}>
-                  Divider
-                </button>
-              </div>
-            </div>
-            <LiveEditor className="live-editor" style={{ color:"red !important",opacity:"1 !important", fontWeight:"bold !important" }}/>
-            <LiveError className="live-error"/>
-            <hr/>
-            <LivePreview className="live-preview"/>
-          </LiveProvider>
-        </div>
             <input type="text" className="form-control" value={this.state.mainContent} onChange={this.onChangeMainContent} />
         </div>
         <div className="form-group">
